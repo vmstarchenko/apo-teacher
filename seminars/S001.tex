@@ -1,0 +1,113 @@
+\documentclass[12pt]{article}
+
+\usepackage{amsthm}
+
+\usepackage[T1,T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english,russian]{babel}
+
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+
+\usepackage{tabularx}
+\usepackage{verbatim}
+\usepackage{filecontents}
+\usepackage{listings}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{fancyvrb}
+
+% custom
+\newtheoremstyle{problemstyle}% name of the style to be used
+{\topsep}   % measure of space to leave above the theorem. E.g.: 3pt
+{\topsep}   % measure of space to leave below the theorem. E.g.: 3pt
+{} % name of font to use in the body of the theorem
+{1.5em}          % measure of space to indent
+{\bfseries \Large} % name of head font
+{\\}        % punctuation between head and body
+{   }         % space after theorem head; " " = normal interword space
+{\thmname{#1}\thmnumber{ №#2}\thmnote{: #3}
+}
+
+\theoremstyle{problemstyle}
+\newtheorem{problem}{Задача}
+
+
+% redefine \VerbatimInput
+\RecustomVerbatimCommand{\VerbatimInput}{VerbatimInput}%
+{fontsize=\footnotesize,
+ %
+ framesep=2em, % separation between frame and text
+ rulecolor=\color{Gray},
+ %
+ %
+ commandchars=\|\(\), % escape character and argument delimiters for
+                      % commands within the verbatim
+ commentchar=*        % comment character
+}
+
+\author{Старченко Владимир}
+\title{Задачи курса школьного олимпиадного программирования.\\ Семинар 1.}
+
+
+% ioexapmples
+\newenvironment
+{ioexamples}
+{
+  \newline \vspace{1em}
+  {\bf \large  Пример входных и выходных данных} \vspace{0.5em} \\
+  \tabularx{\textwidth}{|X|X|} \hline
+  {\bf Ввод} & {\bf Вывод}  \\ \hline
+}
+{\endtabularx \vspace{0.5em}}
+
+\newcommand{\example}[2]{ \verbatiminput{#1} & \verbatiminput{#2} \\ \hline }
+
+\begin{document}
+
+
+\maketitle
+
+\begin{problem}[A + B]
+  На стандартный ввод подаются два числа. Напечатать их сумму.
+  \begin{ioexamples}
+    \example{io/AplusB-0.in}{io/AplusB-0.out}
+  \end{ioexamples}
+\end{problem}
+
+
+\begin{problem}[Even or Odd]
+  На стандартный ввод подается число. Определить, является числи
+  четным или нечетным. Если число четное, напечатать {\it even}.
+  Если нечетное {\it odd}.
+  \begin{ioexamples}
+    \example{io/EvenOrOdd-0.in}{io/EvenOrOdd-0.out}
+    \example{io/EvenOrOdd-1.in}{io/EvenOrOdd-1.out}
+  \end{ioexamples}
+\end{problem}
+
+
+\begin{problem}[Factorial]
+  На стандартный ввод подается число. Вывести факториал этого числа.
+  \begin{ioexamples}
+    \example{io/Factorial-0.in}{io/Factorial-0.out}
+  \end{ioexamples}
+\end{problem}
+
+
+%% \begin{problem}[Factorial summ]
+%%   На стандартный ввод подается число. Вывести сумму факториалов всех
+%%   натуральных чисел меньше данного. Не разрешается делать болл
+%%   \begin{ioexamples}
+%%     \example{io/Factorial-0.in}{io/Factorial-0.out}
+%%   \end{ioexamples}
+%% \end{problem}
+
+%% \begin{problem}[Function output generator]
+%%   Необходимо написать функцию {\it generate\_values}, которая получает на вход
+%%   аргументы {\it func}, {\it start}, {\it end}, {\it step}. Необходимо создать список, значения которого {\it func}, {\it start}, {\it end}, {\it step}
+%%   \begin{ioexamples}
+%%     \example{io/Factorial-0.in}{io/Factorial-0.out}
+%%   \end{ioexamples}
+%% \end{problem}
+
+
+\end{document}
